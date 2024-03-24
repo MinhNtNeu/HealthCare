@@ -34,7 +34,7 @@ public class CartLabActivity extends AppCompatActivity {
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
     private Button dateButton, timeButton, btnCheckout, btnBack;
-    
+
     private String[][] packages = {};
 
     @Override
@@ -56,7 +56,7 @@ public class CartLabActivity extends AppCompatActivity {
         Database db = new Database(getApplicationContext(), "healthcare", null,1);
         float totalAmount = 0;
         ArrayList dbData = db.getCartData(username, "lab");
-        
+
         packages = new String[dbData.size()][];
 
         for (int i = 0; i < packages.length; i++) {
@@ -70,7 +70,7 @@ public class CartLabActivity extends AppCompatActivity {
             packages[i][4] = "Cost: "+strData[1] +"/-";
             totalAmount = totalAmount + Float.parseFloat(strData[1]);
         }
-        
+
         tvTotal.setText("Total Cost: "+ totalAmount);
 
         list = new ArrayList();
@@ -87,7 +87,7 @@ public class CartLabActivity extends AppCompatActivity {
 
         sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4", "line5"}, new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
         lst.setAdapter(sa);
-        
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,11 +98,11 @@ public class CartLabActivity extends AppCompatActivity {
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-           Intent it = new Intent(CartLabActivity.this, LabTestBookActivity.class);
-           it.putExtra("price", tvTotal.getText());
-           it.putExtra("date", dateButton.getText());
-           it.putExtra("time", timeButton.getText());
-           startActivity(it);
+                Intent it = new Intent(CartLabActivity.this, LabTestBookActivity.class);
+                it.putExtra("price", tvTotal.getText());
+                it.putExtra("date", dateButton.getText());
+                it.putExtra("time", timeButton.getText());
+                startActivity(it);
             }
         });
 

@@ -32,7 +32,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         Button btn = findViewById(R.id.buttonODBack);
 
         lst = findViewById(R.id.listViewOD);
-        
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +44,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "").toString();
         ArrayList dbData = db.getOrderData(username);
-        
+
         order_details = new String[dbData.size()][];
         for (int i = 0; i < order_details.length; i++) {
             order_details[i] = new String[5];
@@ -52,16 +52,16 @@ public class OrderDetailsActivity extends AppCompatActivity {
             String[] strData = arrData.split(Pattern.quote("$"));
             order_details[i][0] = strData[0];
             order_details[i][1] = strData[1];
-            
+
             if(strData[7].compareTo("medicine") == 0) {
                 order_details[i][3] = "Del: "+strData[4];
             } else {
                 order_details[i][3] = "Del:" + strData[4] +" "+strData[5];
             }
-            
+
             order_details[i][2] = "Rs."+strData[6];
             order_details[i][4] = strData[7];
-            
+
         }
 
         list = new ArrayList();
@@ -80,7 +80,7 @@ public class OrderDetailsActivity extends AppCompatActivity {
         sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4", "line5"}, new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
         ListView lst = findViewById(R.id.listViewOD);
         lst.setAdapter(sa);
-        
+
 
     }
 }

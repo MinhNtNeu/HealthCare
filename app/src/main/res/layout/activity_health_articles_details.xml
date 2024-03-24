@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back1"
+    android:background="@color/white"
     tools:context=".HealthArticlesDetailsActivity">
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DENTISTS"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/blue_150"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -37,24 +37,29 @@
 
     <ImageView
         android:id="@+id/imageViewHAD"
-        android:layout_width="344dp"
-        android:layout_height="523dp"
+        android:layout_width="308dp"
+        android:layout_height="438dp"
         android:layout_marginStart="-40dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="-40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHADtitle"
-        tools:srcCompat="@drawable/health1"/>
+        tools:srcCompat="@drawable/health1" />
 
     <Button
         android:id="@+id/buttonHADBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/colorGrey"
         android:text="BACK"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

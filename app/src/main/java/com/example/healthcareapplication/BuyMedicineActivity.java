@@ -30,22 +30,22 @@ public class BuyMedicineActivity extends AppCompatActivity {
     private String[] package_details
             = {
             "Building and keeping the bones & teeth strong\n"+
-            "Reducing Fatigue/stress and muscular pains\n"+
-            "Boosting immunity and increasing resistance against infection",
+                    "Reducing Fatigue/stress and muscular pains\n"+
+                    "Boosting immunity and increasing resistance against infection",
             "Chromium is an essential trace mineral that plays an important role in helping insulin regulate blood glucose",
             "Provides relief from vitamin B deficiencies\n"+
-            "Helps in formation of red blood cells\n"+
-            "Maintains healthy nervous system",
+                    "Helps in formation of red blood cells\n"+
+                    "Maintains healthy nervous system",
             "It promotes health as well as skin benefit. \n" +
-            "It helps reduce skin blemish and pigmentation. \n"+
-            "It act as safeguard the skin from the harsh UVA and UVB sun rays.",
+                    "It helps reduce skin blemish and pigmentation. \n"+
+                    "It act as safeguard the skin from the harsh UVA and UVB sun rays.",
             "Dolo 650 Tablet helps relieve pain and fever by blocking the release of certain chemical messengers reponsible for fever and pain",
             "Helps relieve fever and bring down a high temperature\n"+
-            "Suitable for people with a heart condition or high blood pressure",
+                    "Suitable for people with a heart condition or high blood pressure",
             "Relieves the symptoms of a bacterial throat infection and soothes the recovery process\n" +
-            "Provides a warm and comforting feeling during sore throat",
+                    "Provides a warm and comforting feeling during sore throat",
             "Reduces the risk of calcium deficiency, Rickets, and Osteoporosis\n"+
-            "Promotes mobility and flexibility of joints",
+                    "Promotes mobility and flexibility of joints",
             "Helps to reduce the iron deficiency due to chronic blood loss or low intake of iron"
     };
 

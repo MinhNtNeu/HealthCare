@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back2"
+    android:background="@color/white"
     tools:context=".BuyMedicineActivity">
     <Button
         android:id="@+id/buttonBMBack"
@@ -12,6 +12,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
         android:text="BACK"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/colorGrey"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.907"
@@ -20,9 +23,12 @@
     <Button
         android:id="@+id/buttonBMGoToCart"
         android:layout_width="223dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="4dp"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/colorRed"
         android:text="GO TO CART"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.164"
@@ -33,15 +39,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Buy Medicines"
-        android:textColor="@color/yellowLight"
+        android:textColor="@color/blue_150"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDDName"
-        app:layout_constraintVertical_bias="0.087" />
+        app:layout_constraintVertical_bias="0.063" />
 
     <TextView
         android:id="@+id/textViewDDName"
@@ -55,22 +61,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <TextView
         android:id="@+id/textViewLTName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Deliver Location: Ha Noi"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewDDName"
-        app:layout_constraintVertical_bias="0.031" />
+        app:layout_constraintVertical_bias="0.017" />
 
     <ListView
         android:id="@+id/listViewBM"
@@ -84,7 +89,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLTName" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

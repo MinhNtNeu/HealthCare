@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DoctorDetailsActivity"
-    android:background="@drawable/back1">
+    android:background="@color/white"
+    tools:context=".DoctorDetailsActivity">
 
     <TextView
         android:id="@+id/textViewDDName"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Default Text"
-        android:textColor="@color/colorWhite"
+        android:textColor="@color/blue_150"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,14 +45,19 @@
         android:layout_marginEnd="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLDName" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLDName"
+        app:layout_constraintVertical_bias="0.292" />
 
     <Button
         android:id="@+id/buttonDDBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="BACK"
+        android:background="@drawable/btn_bg"
+        android:backgroundTint="@color/colorGrey"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

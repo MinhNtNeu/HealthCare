@@ -14,17 +14,17 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class LabTestActivity extends AppCompatActivity {
-    
-    private String[][] packages = 
+
+    private String[][] packages =
             {
                     {"Package 1 : Full Body Checkup", "", "", "", "999"},
                     {"Package 2 : Blood Glucose Fasting", "", "", "", "299"},
                     {"Package 3 : COVID-19 Antibody", "", "", "", "899"},
                     {"Package 4 : Thyroid Check", "", "", "", "499"},
                     {"Package 5 : Immunity Check", "", "", "", "999"},
-                    
+
             };
-    
+
     private String[] package_details = {
             "Blood Glucose Fasting\n" + " Complete Hemogram\n" + "HbA1c\n"+" Iron Studies\n"+"Kidney Function Test\n" + "LDH Lactate Dehydrogenase, Serum\n" + "Lipid Profile\n" + "Liver Fuction Test",
             "Blood Glucose Fasting",
@@ -32,32 +32,32 @@ public class LabTestActivity extends AppCompatActivity {
             "Thyroid Profile-Total (T3, T4 & TSH Ultra-sensitive)",
             "Complete Hemogram\n" + "CRP (C Reactive Protein) Quantitative, Serum\n" +" Iron Studies\n"+"Kidney Function Test\n" + "Vitamin D Total-25 Hydroxy\n" + "Liver Fuction Test\n" + "Lipid Profile"
     };
-    
+
     HashMap<String,String> item;
     ArrayList list;
     SimpleAdapter sa;
-    
+
     Button btnGoToCart, btnBack;
-    
+
     ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lab_test);
-        
+
         btnGoToCart = findViewById(R.id.buttonLTAddToCart);
         btnBack = findViewById(R.id.buttonLTGoBack);
         listView = findViewById(R.id.listViewLT);
-        
-        
+
+
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LabTestActivity.this, HomeActivity.class));
             }
         });
-        
+
         list = new ArrayList();
         for (int i = 0; i < packages.length; i++) {
             item = new HashMap<String, String>();
