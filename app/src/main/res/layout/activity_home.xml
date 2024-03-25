@@ -7,23 +7,24 @@
     android:background="@drawable/get"
     tools:context=".HomeActivity">
 
-
-    <TextView
-        android:id="@+id/titleHome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="24*7 HEALTHCARE"
-        android:textColor="#FF106293"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="12dp"/>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="360dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/logo205"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.469" />
 
 
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/titleHome"
+        android:layout_below="@+id/imageView"
         android:layout_margin="20dp"
         android:columnCount="2"
         android:rowCount="3">
@@ -33,15 +34,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
-            android:layout_column="0"
             android:layout_rowWeight="1"
+            android:layout_column="0"
             android:layout_columnWeight="1"
             android:layout_gravity="fill"
             app:cardBackgroundColor="@color/colorWhite"
             app:cardCornerRadius="8dp"
             app:cardElevation="8dp"
-            app:cardUseCompatPadding="true"
-            >
+            app:cardUseCompatPadding="true">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -49,16 +49,17 @@
                 android:layout_gravity="center_vertical|center_horizontal"
                 android:gravity="center"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/home"/>
+                    android:src="@drawable/home" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="LAB TEST"
                     android:layout_marginTop="8dp"
+                    android:text="LAB TEST"
                     android:textAlignment="center"
                     android:textColor="@color/purple_200"
                     android:textStyle="bold" />

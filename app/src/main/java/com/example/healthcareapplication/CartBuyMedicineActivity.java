@@ -1,6 +1,8 @@
 package com.example.healthcareapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -9,12 +11,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.example.healthcareapplication.adapter.BuyMedicineAdapter;
+import com.example.healthcareapplication.adapter.CartBuyMedicineAdapter;
+import com.example.healthcareapplication.adapter.CartLabAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -27,7 +34,8 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
     SimpleAdapter sa;
     TextView tvTotal;
     ListView lst;
-
+    private ArrayList<String> dbData;
+    private RecyclerView recyclerView;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
     private Button dateButton, btnCheckout, btnBack;
@@ -39,18 +47,20 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_buy_medicine);
         dateButton = findViewById(R.id.buttonBMCartDate);
-
+        recyclerView = findViewById(R.id.recyclecartmedicine);
         btnCheckout = findViewById(R.id.buttonBMCartCheckout);
         btnBack = findViewById(R.id.buttonBMCartBack);
         tvTotal = findViewById(R.id.textViewBMCartTotalCost);
-        lst = findViewById(R.id.listViewBMCart);
+
 
         SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "").toString();
 
         Database db = new Database(getApplicationContext(), "healthcare", null,1);
+        dbData = db.getCartData(username, "medicine");
+        Log.d("abc",dbData.toString());
         float totalAmount = 0;
-        ArrayList dbData = db.getCartData(username, "medicine");
+
 
         packages = new String[dbData.size()][];
 
@@ -65,23 +75,10 @@ public class CartBuyMedicineActivity extends AppCompatActivity {
             packages[i][4] = "Cost: "+strData[1] +"/-";
             totalAmount = totalAmount + Float.parseFloat(strData[1]);
         }
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        CartBuyMedicineAdapter adapter = new CartBuyMedicineAdapter(dbData);
+        recyclerView.setAdapter(adapter);
         tvTotal.setText("Total Cost: "+ totalAmount);
-
-        list = new ArrayList();
-        for (int i = 0; i < packages.length; i++) {
-            item = new HashMap<String, String>();
-            item.put("line1", packages[i][0]);
-            item.put("line2", packages[i][1]);
-            item.put("line3", packages[i][2]);
-            item.put("line4", packages[i][3]);
-            item.put("line5", packages[i][4]);
-            list.add(item);
-
-        }
-
-        sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4", "line5"}, new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
-        lst.setAdapter(sa);
 
 
         btnBack.setOnClickListener(new View.OnClickListener() {

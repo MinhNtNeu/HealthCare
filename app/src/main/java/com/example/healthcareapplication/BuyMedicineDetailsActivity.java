@@ -40,6 +40,7 @@ public class BuyMedicineDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(BuyMedicineDetailsActivity.this, BuyMedicineActivity.class));
+
             }
         });
 

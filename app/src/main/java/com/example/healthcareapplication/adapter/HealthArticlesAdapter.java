@@ -10,14 +10,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.healthcareapplication.R;
 
-public class LabTestAdapter extends RecyclerView.Adapter<LabTestAdapter.ViewHolder> {
-    private final String[][] packages;
-    private final String[] packageDetails;
+public class HealthArticlesAdapter extends RecyclerView.Adapter<HealthArticlesAdapter.ViewHolder>{
+    private final String[][] healthDetails;
 
-    public LabTestAdapter(String[][] packages, String[] packageDetails) {
-        this.packages = packages;
-        this.packageDetails = packageDetails;
+    public HealthArticlesAdapter(String[][] healthDetails) {
+        this.healthDetails = healthDetails;
     }
+
     public interface OnItemClickListener {
         void onItemClick(int position);
     }
@@ -36,28 +35,27 @@ public class LabTestAdapter extends RecyclerView.Adapter<LabTestAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        holder.line1.setText(packages[position][0]);
-        holder.line2.setText(packages[position][1]);
-        holder.line3.setText(packages[position][2]);
-        holder.line4.setText(packages[position][3]);
-        holder.line5.setText("Total Cost: " + packages[position][4] + "/-");
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.line1.setText(healthDetails[position][0]);
+        holder.line2.setText(healthDetails[position][1]);
+        holder.line3.setText(healthDetails[position][2]);
+        holder.line4.setText(healthDetails[position][3]);
+        holder.line5.setText(healthDetails[position][4]);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onItemClick(holder.getAdapterPosition());
+            public void onClick(View view) {
+                int adapterPosition = holder.getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION && listener != null) {
+                    listener.onItemClick(adapterPosition);
                 }
             }
         });
     }
 
-
-
     @Override
     public int getItemCount() {
-        return packages.length;
+        return healthDetails.length;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

@@ -7,16 +7,14 @@
     android:background="@drawable/get"
     tools:context=".FindDoctorActivity">
 
-    <TextView
-        android:id="@+id/titleFindDoctor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="12dp"
-        android:text="24*7 HEALTHCARE"
-        android:textColor="@color/purple_200"
-        android:textSize="30sp"
-        android:textStyle="bold" />
+    <ImageView
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="66dp"
+        android:layout_marginEnd="84dp"
+        android:src="@drawable/logo205" />
 
     <TextView
         android:id="@+id/titleFindDoctorTop"

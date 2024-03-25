@@ -13,9 +13,9 @@ import com.example.healthcareapplication.R;
 import java.util.ArrayList;
 
 public class CartLabAdapter extends RecyclerView.Adapter<CartLabAdapter.ViewHolder> {
-    private ArrayList<String[]> dbData;
+    private ArrayList<String> dbData;
 
-    public CartLabAdapter(ArrayList<String[]> dbData) {
+    public CartLabAdapter(ArrayList<String> dbData) {
         this.dbData = dbData;
     }
 
@@ -41,9 +41,13 @@ public class CartLabAdapter extends RecyclerView.Adapter<CartLabAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String[] data = dbData.get(position);
-        holder.line1.setText(data[0]);
-        holder.line5.setText("Total Cost: " + data[1] + "/-");
+        String data = dbData.get(position);
+        holder.line1.setText(data);
+        holder.line5.setText("Total Cost: " + data + "/-");
+        holder.line2.setText("");
+        holder.line3.setText("");
+        holder.line4.setText("");
+
     }
 
     @Override

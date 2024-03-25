@@ -1,6 +1,8 @@
 package com.example.healthcareapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+
+import com.example.healthcareapplication.adapter.DoctorDetailAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,7 +84,9 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     Button btn;
 
     String[][] doctor_details = {};
+    private String[][] doctorDetails;
 
+    private RecyclerView recyclerView;
     ArrayList list;
     HashMap<String, String> item;
     SimpleAdapter sa;
@@ -89,25 +95,27 @@ public class DoctorDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_details);
-
+        recyclerView = findViewById(R.id.recycleDoctor);
         tv = findViewById(R.id.textViewLDName);
         btn = findViewById(R.id.buttonDDBack);
         Intent it = getIntent();
         String title = it.getStringExtra("title");
         tv.setText(title);
-
+        doctorDetails = getDoctorDetails(title);
         if (title.compareTo("Family Physicians") == 0) {
-            doctor_details = doctor_details1;
+            doctorDetails = doctor_details1;
         } else if (title.compareTo("Dietician") == 0) {
-            doctor_details = doctor_details2;
+            doctorDetails = doctor_details2;
         } else if (title.compareTo("Dentist") == 0) {
-            doctor_details = doctor_details3;
+            doctorDetails = doctor_details3;
         } else if (title.compareTo("Surgeon") == 0) {
-            doctor_details = doctor_details4;
+            doctorDetails = doctor_details4;
         } else {
-            doctor_details = doctor_details5;
+            doctorDetails = doctor_details5;
         }
-
+        DoctorDetailAdapter adapter = new DoctorDetailAdapter(this, doctorDetails);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,36 +124,8 @@ public class DoctorDetailsActivity extends AppCompatActivity {
             }
         });
 
-        list = new ArrayList();
-        for (int i = 0; i < doctor_details.length; i++) {
-            item = new HashMap<String, String>();
-            item.put("line1", doctor_details[i][0]);
-            item.put("line2", doctor_details[i][1]);
-            item.put("line3", doctor_details[i][2]);
-            item.put("line4", doctor_details[i][3]);
-            item.put("line5", "Cons Fees:" + doctor_details[i][4] + "/-");
-            list.add(item);
-
-        }
-
-        sa = new SimpleAdapter(this, list, R.layout.multi_lines, new String[]{"line1", "line2", "line3", "line4", "line5"}, new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d, R.id.line_e});
-        ListView lst = findViewById(R.id.listViewDD);
-        lst.setAdapter(sa);
-
-        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int i, long l) {
-                Intent it = new Intent(DoctorDetailsActivity.this, BookAppointmentActivity.class);
-                it.putExtra("text1", title);
-                it.putExtra("text2", doctor_details[i][0]);
-                it.putExtra("text3", doctor_details[i][1]);
-                // Skip 2nd item because dont need that infomation
-                it.putExtra("text4", doctor_details[i][3]);
-                it.putExtra("text5", doctor_details[i][4]);
-
-                startActivity(it);
-            }
-        });
-
+    }
+    private String[][] getDoctorDetails(String title) {
+        return new String[][]{};
     }
 }
